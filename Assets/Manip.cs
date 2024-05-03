@@ -25,9 +25,9 @@ public class Manip : MonoBehaviour
             new Vector2(Stup.position.x, Stup.position.y));
         var d1 = Stup.position.y - Bedro.position.y;
 
-        angle_B = (Mathf.Acos((a*a*2 - dist*dist)/(2*a*a)) - Mathf.PI)*(Mathf.Abs(Koleno.localPosition.x + Stup.localPosition.x)/ (Koleno.localPosition.x + Stup.localPosition.x));
+        angle_B = (Mathf.Acos((a*a*2 - dist*dist)/(2*a*a)) - Mathf.PI)*(Mathf.Abs(Koleno.localPosition.x + Stup.position.x)/ (Koleno.localPosition.x + Stup.position.x));
         Koleno.localRotation = Quaternion.Euler(0, 0, 180 * angle_B / Mathf.PI);
-       /* angle_A = Mathf.Abs(Koleno.localPosition.x - Stup.localPosition.x) / (Koleno.localPosition.x - Stup.localPosition.x) * -(((Mathf.PI - angle_B)/2 + Mathf.Acos((dist*dist + d2*d2 - d1*d1)/(2*dist*d2))) - Mathf.PI/2);*/
+        angle_A = Mathf.Abs(Koleno.localPosition.x + Stup.position.x) / (Koleno.localPosition.x + Stup.position.x) * (((Mathf.PI - Mathf.Abs(angle_B))/2 + Mathf.Acos((dist*dist + d2*d2 - d1*d1)/(2*dist*d2))) - Mathf.PI/2 + Mathf.PI/3);
         Bedro.localRotation = Quaternion.Euler(0,0,180*angle_A/Mathf.PI);
         
     }
